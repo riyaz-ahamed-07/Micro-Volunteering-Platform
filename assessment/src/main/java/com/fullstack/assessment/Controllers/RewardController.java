@@ -18,9 +18,7 @@ public class RewardController {
     private RewardService rewardService;
 
     @PostMapping
-    public RewardEntity createReward(@RequestBody RewardEntity reward,
-                                     @RequestParam Long userId,
-                                     @RequestParam Long orgId) {
+    public RewardEntity createReward(@RequestBody RewardEntity reward, @RequestParam Long userId, @RequestParam Long orgId) {
         return rewardService.createReward(reward, userId, orgId);
     }
 

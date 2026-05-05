@@ -15,9 +15,7 @@ public class TaskController {
     private final TaskService taskService;
 
     @PostMapping
-    public TaskEntity createTask(@RequestBody TaskEntity task,
-                                 @RequestParam Long userId,
-                                 @RequestParam Long orgId) {
+    public TaskEntity createTask(@RequestBody TaskEntity task, @RequestParam Long userId, @RequestParam Long orgId) {
         return taskService.createTask(task, userId, orgId);
     }
 

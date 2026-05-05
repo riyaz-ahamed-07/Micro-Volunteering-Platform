@@ -15,29 +15,28 @@ public class OrganizationController {
     private final OrganizationService organizationService;
 
     @PostMapping
-    public OrganizationEntity createOrganization(@RequestBody OrganizationEntity organization) {
-        return organizationService.createOrganization(organization);
+    public OrganizationEntity createOrg(@RequestBody OrganizationEntity organization) {
+        return organizationService.createOrg(organization);
     }
 
     @GetMapping
-    public List<OrganizationEntity> getAllOrganizations() {
-        return organizationService.getAllOrganizations();
+    public List<OrganizationEntity> getAllOrg() {
+        return organizationService.getAllOrg();
     }
 
     @GetMapping("/{id}")
-    public OrganizationEntity getOrganizationById(@PathVariable Long id) {
-        return organizationService.getOrganizationById(id);
+    public OrganizationEntity getOrgById(@PathVariable Long id) {
+        return organizationService.getOrgById(id);
     }
 
     @PutMapping("/{id}")
-    public OrganizationEntity updateOrganization(@PathVariable Long id,
-                                                 @RequestBody OrganizationEntity organization) {
-        return organizationService.updateOrganization(id, organization);
+    public OrganizationEntity updateOrg(@PathVariable Long id, @RequestBody OrganizationEntity organization) {
+        return organizationService.updateOrg(id, organization);
     }
 
     @DeleteMapping("/{id}")
-    public String deleteOrganization(@PathVariable Long id) {
-        organizationService.deleteOrganization(id);
+    public String deleteOrg(@PathVariable Long id) {
+        organizationService.deleteOrg(id);
         return "Organization deleted successfully";
     }
 }

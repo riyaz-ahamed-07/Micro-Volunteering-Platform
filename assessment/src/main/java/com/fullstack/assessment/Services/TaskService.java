@@ -20,11 +20,9 @@ public class TaskService {
     private final OrganizationRepo orgRepo;
 
     public TaskEntity createTask(TaskEntity task, Long userId, Long orgId) {
-        UserEntity user = userRepo.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+        UserEntity user = userRepo.findById(userId);
 
-        OrganizationEntity org = orgRepo.findById(orgId)
-                .orElseThrow(() -> new RuntimeException("Organization not found"));
+        OrganizationEntity org = orgRepo.findById(orgId);
 
         task.setUser(user);
         task.setOrganization(org);

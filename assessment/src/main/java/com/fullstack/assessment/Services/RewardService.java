@@ -19,11 +19,8 @@ public class RewardService {
     private final OrganizationRepo organizationRepository;
 
     public RewardEntity createReward(RewardEntity reward, Long userId, Long orgId) {
-        UserEntity user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-        OrganizationEntity org = organizationRepository.findById(orgId)
-                .orElseThrow(() -> new RuntimeException("Organization not found"));
-
+        UserEntity user = userRepository.findById(userId);
+        OrganizationEntity org = organizationRepository.findById(orgId);
         reward.setUser(user);
         reward.setOrganization(org);
         return rewardRepository.save(reward);
@@ -34,8 +31,7 @@ public class RewardService {
     }
 
     public RewardEntity getRewardById(Long id) {
-        return rewardRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Reward not found"));
+        return rewardRepository.findById(id);
     }
 
     public List<RewardEntity> getRewardsByUser(Long userId) {

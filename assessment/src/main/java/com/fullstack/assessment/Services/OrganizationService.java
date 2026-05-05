@@ -13,20 +13,20 @@ public class OrganizationService {
 
     private final OrganizationRepo repo;
 
-    public OrganizationEntity createOrganization(OrganizationEntity organization) {
+    public OrganizationEntity createOrg(OrganizationEntity organization) {
         return repo.save(organization);
     }
 
-    public List<OrganizationEntity> getAllOrganizations() {
+    public List<OrganizationEntity> getAllOrg() {
         return repo.findAll();
     }
 
-    public OrganizationEntity getOrganizationById(Long id) {
+    public OrganizationEntity getOrgById(Long id) {
         return repo.findById(id);
     }
 
-    public OrganizationEntity updateOrganization(Long id, OrganizationEntity updatedOrg) {
-        OrganizationEntity org = getOrganizationById(id);
+    public OrganizationEntity updateOrg(Long id, OrganizationEntity updatedOrg) {
+        OrganizationEntity org = getOrgById(id);
         org.setName(updatedOrg.getName());
         org.setPhone(updatedOrg.getPhone());
         org.setLocation(updatedOrg.getLocation());
@@ -37,7 +37,7 @@ public class OrganizationService {
         return repo.save(org);
     }
 
-    public void deleteOrganization(Long id) {
+    public void deleteOrg(Long id) {
         repo.deleteById(id);
     }
 }
